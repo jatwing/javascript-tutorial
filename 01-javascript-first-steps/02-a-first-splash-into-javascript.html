@@ -85,7 +85,7 @@
           alert('Please enter a number!');
           return;
         }
-        if (turnNumber == 1) {
+        if (turnNumber === 1) {
           guesses.textContent = 'Previous guesses:';
         }
         guesses.textContent += ' ' + guessNumber;
@@ -93,7 +93,7 @@
           setGameOver(true);
           return;
         }
-        if (turnNumber == 10) {
+        if (turnNumber === 10) {
           setGameOver(false);
           return;
         }
