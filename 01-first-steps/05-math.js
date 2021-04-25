@@ -19,34 +19,26 @@ console.log(num2 + num1 / 8 + 2, (num2 + num1) / (8 + 2));
 
 num1 = 4;
 num1++;
-num2 = 6
-num2 --;
-console.log(num1, num2)
+num2 = 6;
+num2--;
+console.log(num1, num2);
 
 let x = 3;
 let y = 4;
 x = y;
 x *= y;
 
-
 const btn = document.querySelector('button');
 const txt = document.querySelector('p');
 
-btn.addEventListener('click', updateBtn)
+btn.addEventListener('click', updateBtn);
 
 function updateBtn() {
   if (btn.textContent === 'Start machine') {
     btn.textContent = 'Stop machine';
-    txt.textContent = 'The machine has started!'
+    txt.textContent = 'The machine has started!';
   } else {
     btn.textContent = 'Start machine';
-    txt.textContent = 'The machine is stopped.'
+    txt.textContent = 'The machine is stopped.';
   }
 }
-
-
-
-
-
-
-
