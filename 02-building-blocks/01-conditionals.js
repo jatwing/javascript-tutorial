@@ -17,9 +17,9 @@ if (cheese) {
 let iceCreamVanOutside = false;
 let houseStatus = 'on fire';
 if (iceCreamVanOutside || houseStatus === 'on fire') {
-  console.log('You should leave the house quickly.')
+  console.log('You should leave the house quickly.');
 } else {
-   console.log('Probably should just stay in then.');
+  console.log('Probably should just stay in then.');
 }
 if (!(iceCreamVanOutside || houseStatus === 'on fire')) {
   console.log('Probably should just stay in then.');
@@ -28,8 +28,6 @@ if (!(iceCreamVanOutside || houseStatus === 'on fire')) {
 }
 
 let isBirthday = false;
-let greeting = (isBirthday)?'Happy birthday Mrs. Smith — we hope you have a great day!' : 'Good morning Mrs. Smith.';
-
-
-
-
+let greeting = isBirthday
+  ? 'Happy birthday Mrs. Smith — we hope you have a great day!'
+  : 'Good morning Mrs. Smith.';
