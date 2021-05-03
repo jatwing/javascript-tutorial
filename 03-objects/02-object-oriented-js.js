@@ -35,11 +35,6 @@ let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
 console.log(person1['age'], person1.interests[1]);
 person1.bio();
 
-
 let person2 = Object.create(person1);
-console.log(person2.name)
-person2.greeting()
-
-
-
-
+console.log(person2.name);
+person2.greeting();

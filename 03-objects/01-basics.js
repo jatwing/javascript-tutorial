@@ -1,11 +1,11 @@
 const person = {
   name: {
-    first: "Bob",
-    last: "Smith",
+    first: 'Bob',
+    last: 'Smith',
   },
   age: 32,
-  gender: "male",
-  interests: ["music", "skiing"],
+  gender: 'male',
+  interests: ['music', 'skiing'],
   bio: function () {
     console.log(
       `${this.name.first} ${this.name.last} is ${this.age} years old. He likes ${this.interests[0]} and ${this.interests[1]}.`
@@ -20,32 +20,32 @@ person.bio();
 person.greeting();
 
 person.age = 45;
-person["name"]["last"] = "Cratchit";
-console.log(person.age, person["name"]["last"]);
+person['name']['last'] = 'Cratchit';
+console.log(person.age, person['name']['last']);
 
-person["eyes"] = "hazel";
+person['eyes'] = 'hazel';
 person.farewell = function () {
-  console.log("Bye everybody!");
+  console.log('Bye everybody!');
 };
-console.log(person["eyes"]);
+console.log(person['eyes']);
 person.farewell();
 
-let myDataName = "height";
-let myDataValue = "1.75m";
+let myDataName = 'height';
+let myDataValue = '1.75m';
 person[myDataName] = myDataValue;
 console.log(person.height);
 
 const person1 = {
-  name: "Chris",
+  name: 'Chris',
   greeting: function () {
     console.log(`Hi! I'm ${this.name}.`);
   },
 };
 const person2 = {
-  name: "Deepti",
+  name: 'Deepti',
   greeting: function () {
     console.log(`Hi! I'm ${this.name}.`);
   },
 };
-person1.greeting()
-person2.greeting()
+person1.greeting();
+person2.greeting();

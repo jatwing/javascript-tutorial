@@ -1,6 +1,6 @@
-const input = document.querySelector(".numberInput");
-const paraFoo = document.querySelector("#foo");
-const paraBar = document.querySelector("#bar");
+const input = document.querySelector('.numberInput');
+const paraFoo = document.querySelector('#foo');
+const paraBar = document.querySelector('#bar');
 
 function squared(num) {
   return num * num;
@@ -45,7 +45,7 @@ function circumference(num) {
 input.onchange = function () {
   const num = input.value;
   if (isNaN(num)) {
-    paraFoo.textContent = "You need to enter a number!";
+    paraFoo.textContent = 'You need to enter a number!';
   } else {
     paraFoo.textContent = `${num} squared is ${squared(num)}.
       ${num} cubed is ${cubed(num)}.

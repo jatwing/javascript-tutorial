@@ -1,5 +1,5 @@
-const buttonColor = document.querySelector("#color");
-const buttons = document.querySelectorAll("button");
+const buttonColor = document.querySelector('#color');
+const buttons = document.querySelectorAll('button');
 
 function random(number) {
   return Math.floor(Math.random() * (number + 1));
@@ -18,7 +18,7 @@ function bgChangeButton(e) {
 
 bgChangeDiv = (e) => {
   const rndCol =
-    "rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
+    'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
   e.target.style.backgroundColor = rndCol;
 };
 
@@ -27,55 +27,55 @@ function bgChangeDiv() {
 }
 
 const controller = new AbortController();
-buttonColor.addEventListener("click", bgChange, { signal: controller.signal });
-buttonColor.addEventListener("click", bgChangeButton);
+buttonColor.addEventListener('click', bgChange, { signal: controller.signal });
+buttonColor.addEventListener('click', bgChangeButton);
 controller.abort();
 
 // event useful
 for (let i = 1; i <= 16; i++) {
-  const myDiv = document.createElement("div");
-  myDiv.setAttribute("class", "tile");
+  const myDiv = document.createElement('div');
+  myDiv.setAttribute('class', 'tile');
   document.body.appendChild(myDiv);
 }
-const divs = document.querySelectorAll(".tile");
-divs.forEach((div) => div.addEventListener("click", bgChangeDiv));
+const divs = document.querySelectorAll('.tile');
+divs.forEach((div) => div.addEventListener('click', bgChangeDiv));
 
 // form
-const form = document.querySelector("form");
-const fname = document.getElementById("fname");
-const lname = document.getElementById("lname");
-const paraName = document.querySelector("#p-name");
+const form = document.querySelector('form');
+const fname = document.getElementById('fname');
+const lname = document.getElementById('lname');
+const paraName = document.querySelector('#p-name');
 
 const handleSubmit = (e) => {
-  if (fname.value === "" || lname.value === "") {
+  if (fname.value === '' || lname.value === '') {
     e.preventDefault();
-    paraName.textContent = "You need to fill in both names!";
+    paraName.textContent = 'You need to fill in both names!';
   }
 };
-form.addEventListener("submit", handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
 // display video
-const buttonVideo = document.querySelector("#button-video");
-const videoBox = document.querySelector("#div-video");
-const video = document.querySelector("#video");
+const buttonVideo = document.querySelector('#button-video');
+const videoBox = document.querySelector('#div-video');
+const video = document.querySelector('#video');
 
-buttonVideo.addEventListener("click", () => {
-  videoBox.setAttribute("class", "showing");
-  console.log("click to show");
+buttonVideo.addEventListener('click', () => {
+  videoBox.setAttribute('class', 'showing');
+  console.log('click to show');
 });
 
-videoBox.addEventListener("click", () => {
-  videoBox.setAttribute("class", "hidden");
+videoBox.addEventListener('click', () => {
+  videoBox.setAttribute('class', 'hidden');
 });
 
-video.addEventListener("click", (e) => {
+video.addEventListener('click', (e) => {
   e.stopPropagation();
   video.play();
 });
 
 // list representative
-const list = document.querySelector("#list");
-list.addEventListener("click", (e) => {
+const list = document.querySelector('#list');
+list.addEventListener('click', (e) => {
   console.log(e);
-  alert("clicked");
+  alert('clicked');
 });
