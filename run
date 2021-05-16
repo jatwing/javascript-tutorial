@@ -4,8 +4,8 @@ if [ -z $1 ]; then
 fi
 
 if [[ $1 == all ]]; then
-  python -m SimpleHTTPServer 8000 &
-  open -a firefox http://localhost:8000
+  (sleep 3; open -a firefox http://localhost:8000) &
+  python -m SimpleHTTPServer 8000
   exit 1
 fi
 
