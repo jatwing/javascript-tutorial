@@ -47,20 +47,36 @@ const cry = () => {
  * promise
  */
 const error = new Error('cry');
-new Promise((resolve, reject) => {
+const chooseToppingPromise = new Promise((resolve, reject) => {
   console.log(`choose topping: ${topping}`);
-  isLucky() ? resolve(topping) : reject(error);
-})
-  .then((topping) => {
+  setTimeout(() => {
+    isLucky() ? resolve(topping) : reject(error);
+  }, 100);
+});
+const placeOrderPromise = (topping) =>
+  new Promise((resolve, reject) => {
     const order = getRandomString(5);
     kitchen[order] = `delicious ${topping} pizza`;
     console.log(`place order: ${order}`);
-    return isLucky() ? Promise.resolve(order) : Promise.reject(error);
-  })
-  .then((order) => {
+    setTimeout(() => {
+      isLucky() ? resolve(order) : reject(error);
+    }, 100);
+  });
+const collectOrderPromise = (order) =>
+  new Promise((resolve, reject) => {
     const pizza = kitchen[order];
     console.log(`collect order: ${order}`);
-    return isLucky() ? Promise.resolve(pizza) : Promise.reject(error);
+    setTimeout(() => {
+      isLucky() ? resolve(pizza) : reject(error);
+    }, 100);
+  });
+
+chooseToppingPromise
+  .then((topping) => {
+    return placeOrderPromise(topping);
+  })
+  .then((order) => {
+    return collectOrderPromise(order);
   })
   .then((pizza) => {
     console.log(`eat: ${pizza}`);
@@ -68,4 +84,5 @@ new Promise((resolve, reject) => {
   .catch((e) => {
     console.log(e.message);
   });
+
 
