@@ -93,67 +93,79 @@ function Teacher(first, last, age, gender, interests, subject) {
   this.subject = subject;
 }
 
-Teacher.prototype = Object.create(Person.prototype)
+Teacher.prototype = Object.create(Person.prototype);
 Object.defineProperty(Teacher.prototype, 'constructor', {
   value: Teacher,
   enumerable: false,
-  writable: true
-})
+  writable: true,
+});
 
 const getPrefix = (gender) => {
   let prefix;
-  if (this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+  if (
+    this.gender === 'male' ||
+    this.gender === 'Male' ||
+    this.gender === 'm' ||
+    this.gender === 'M'
+  ) {
     prefix = 'Mr.';
-  } else if (this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+  } else if (
+    this.gender === 'female' ||
+    this.gender === 'Female' ||
+    this.gender === 'f' ||
+    this.gender === 'F'
+  ) {
     prefix = 'Ms.';
   } else {
     prefix = 'Mx.';
   }
   return prefix;
-}
-
-
-Teacher.prototype.greeting = function() {
-  const prefix = getPrefix(this.gender)
-
-  alert('Hello. My name is ' + prefix + ' ' + this.name.last + ', and I teach ' + this.subject + '.');
 };
 
-let teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
+Teacher.prototype.greeting = function () {
+  const prefix = getPrefix(this.gender);
+
+  alert(
+    'Hello. My name is ' +
+      prefix +
+      ' ' +
+      this.name.last +
+      ', and I teach ' +
+      this.subject +
+      '.'
+  );
+};
+
+let teacher1 = new Teacher(
+  'Dave',
+  'Griffiths',
+  31,
+  'male',
+  ['football', 'cookery'],
+  'mathematics'
+);
 console.log(teacher1.name.first, teacher1.interests[0], teacher1.subject);
 teacher1.bio();
 teacher1.greeting();
 teacher1.farewell();
 
-
 function Student(first, last, age, gender, interests) {
-  Person.call(this, first, last, age, gender, interests)
+  Person.call(this, first, last, age, gender, interests);
 }
 
-Student.prototype = Object.create(Person.prototype)
+Student.prototype = Object.create(Person.prototype);
 Object.defineProperty(Student.prototype, 'constructor', {
   value: Teacher,
   enumerable: false,
-  writable: true
-})
+  writable: true,
+});
 
-Student.prototype.greeting = function() {
-  console.log(`Yo! I'm ${this.name.first}.`)
-}
+Student.prototype.greeting = function () {
+  console.log(`Yo! I'm ${this.name.first}.`);
+};
 
-const student1 = new Student('Dave', 'Griffiths', 31, 'male', ['football', 'cookery']);
-student1.greeting()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const student1 = new Student('Dave', 'Griffiths', 31, 'male', [
+  'football',
+  'cookery',
+]);
+student1.greeting();

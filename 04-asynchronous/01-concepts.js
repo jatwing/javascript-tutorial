@@ -4,4 +4,4 @@ for (let i = 0; i < 10000000; i++) {
   myDate = date;
 }
 console.log(myDate);
-console.log("This is a newly-added paragraph.");
+console.log('This is a newly-added paragraph.');

@@ -22,13 +22,13 @@ async function timeTestSlow() {
 }
 async function timeTestFast() {
   // they run simultaneously
-  const timeoutPromise1 = timeoutPromise(3000)
-  const timeoutPromise2 = timeoutPromise(3000)
-  const timeoutPromise3 = timeoutPromise(3000)
+  const timeoutPromise1 = timeoutPromise(3000);
+  const timeoutPromise2 = timeoutPromise(3000);
+  const timeoutPromise3 = timeoutPromise(3000);
   // await their results
-  await timeoutPromise1
-  await timeoutPromise2
-  await timeoutPromise3
+  await timeoutPromise1;
+  await timeoutPromise2;
+  await timeoutPromise3;
 }
 let startTime = Date.now();
 
@@ -44,14 +44,11 @@ let startTime = Date.now();
 //  console.log('Time taken (fast) in milliseconds: ' + timeTaken);
 //});
 
-
-
-
 class Person {
   constructor(first, last, age, gender, interests) {
     this.name = {
       first,
-      last
+      last,
     };
     this.age = age;
     this.gender = gender;
@@ -60,12 +57,12 @@ class Person {
 
   async greeting() {
     return await Promise.resolve(`Hi! I'm ${this.name.first}`);
-  };
+  }
 
   farewell() {
     console.log(`${this.name.first} has left the building. Bye for now!`);
-  };
+  }
 }
 
 let han = new Person('Han', 'Solo', 25, 'male', ['Smuggling']);
-han.greeting().then(console.log)
+han.greeting().then(console.log);

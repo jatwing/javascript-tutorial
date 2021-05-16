@@ -40,9 +40,10 @@ function fetchAndDecode(url) {
         `There has been a problem with your fetch operation for resource "${url}": ` +
           e.message
       );
-    }).finally(() => {
-    console.log(`fetch attempt for "${url}" finished.`);
-  });;
+    })
+    .finally(() => {
+      console.log(`fetch attempt for "${url}" finished.`);
+    });
 }
 
 let coffee = fetchAndDecode('public/coffee.jpg');
@@ -66,7 +67,6 @@ Promise.all([coffee, tea, description]).then((values) => {
   });
 });
 
-
 /*
  * Promise constructor
  */
@@ -77,15 +77,14 @@ function timeoutPromise(message, interval) {
     } else if (interval < 0 || typeof interval !== 'number') {
       reject('Interval is negative or not a number');
     } else {
-      setTimeout(function(){
+      setTimeout(function () {
         resolve(message);
       }, interval);
     }
   });
-};
+}
 timeoutPromise('Hello there!', 1000)
-.then(alert)
-.catch(e => {
-  console.log(`Error: ${e}`)
-})
-
+  .then(alert)
+  .catch((e) => {
+    console.log(`Error: ${e}`);
+  });

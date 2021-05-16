@@ -24,7 +24,7 @@ const fetchAndDecode = async (url) => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-     const type = response.headers.get('content-type');
+    const type = response.headers.get('content-type');
     if (type.includes('text')) {
       return response.text();
     }

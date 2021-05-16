@@ -9,4 +9,4 @@ function BlueGlassBrick() {
   this.color = 'blue';
 }
 
-console.log(JSON.stringify(new BlueGlassBrick()))
+console.log(JSON.stringify(new BlueGlassBrick()));

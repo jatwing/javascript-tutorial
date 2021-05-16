@@ -42,10 +42,8 @@ const superHeroes = JSON.parse(`{
 
 console.log(
   superHeroes.homeTown,
-  superHeroes["active"],
-  superHeroes["members"][1]["powers"][2]
+  superHeroes['active'],
+  superHeroes['members'][1]['powers'][2]
 );
 
-
 // Json is purely a string.
-

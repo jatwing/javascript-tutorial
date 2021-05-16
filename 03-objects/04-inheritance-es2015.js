@@ -27,7 +27,7 @@ leia.farewell();
 // Leia has left the building. Bye for now
 
 class Teacher extends Person {
-  constructor(first, last, age, gender, interests,subject, grade) {
+  constructor(first, last, age, gender, interests, subject, grade) {
     super(first, last, age, gender, interests);
     this._subject = subject;
     this.grade = grade;

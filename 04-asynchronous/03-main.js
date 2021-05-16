@@ -84,12 +84,12 @@ const draw = (timestamp) => {
 };
 
 const handleClickBegin = () => {
-  draw()
-}
+  draw();
+};
 
 const handleClickEnd = () => {
-    cancelAnimationFrame(rAF)
-}
+  cancelAnimationFrame(rAF);
+};
 
-buttonBegin.addEventListener('click', handleClickBegin)
-buttonEnd.addEventListener('click', handleClickEnd)
+buttonBegin.addEventListener('click', handleClickBegin);
+buttonEnd.addEventListener('click', handleClickEnd);

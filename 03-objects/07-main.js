@@ -68,7 +68,7 @@ class Ball extends Shape {
 class EvilCircle extends Shape {
   constructor(x, y, alive) {
     super(x, y, 0, 0, alive);
-    this.color = "white";
+    this.color = 'white';
     this.radius = 10;
   }
 
@@ -106,13 +106,13 @@ class EvilCircle extends Shape {
 
   setControls() {
     window.onkeydown = (e) => {
-      if (e.key === "a") {
+      if (e.key === 'a') {
         this.x -= this.velX;
-      } else if (e.key === "d") {
+      } else if (e.key === 'd') {
         this.x += this.velX;
-      } else if (e.key === "w") {
+      } else if (e.key === 'w') {
         this.y -= this.velY;
-      } else if (e.key === "s") {
+      } else if (e.key === 's') {
         this.y += this.velY;
       }
     };
@@ -133,9 +133,9 @@ class EvilCircle extends Shape {
   }
 }
 
-const p = document.querySelector("p");
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
+const p = document.querySelector('p');
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 
@@ -148,7 +148,7 @@ evilCircle.setControls();
 
 let isFirstLoop = true;
 function loop() {
-  ctx.fillStyle = "rgba(0,0,0,0.25)";
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.fillRect(0, 0, width, height);
 
   let count = 0;
