@@ -127,4 +127,3 @@ const previousPage = (e) => {
 
 nextBtn.addEventListener('click', nextPage);
 previousBtn.addEventListener('click', previousPage);
-

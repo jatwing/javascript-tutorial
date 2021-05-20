@@ -1,13 +1,13 @@
 window.onload = function () {
   // Create constants
-  const section = document.querySelector("section");
+  const section = document.querySelector('section');
   const videos = [
-    { name: "crystal" },
-    { name: "elf" },
-    { name: "frog" },
-    { name: "monster" },
-    { name: "pig" },
-    { name: "rabbit" },
+    { name: 'crystal' },
+    { name: 'elf' },
+    { name: 'frog' },
+    { name: 'monster' },
+    { name: 'pig' },
+    { name: 'rabbit' },
   ];
   // Create an instance of a db object for us to store our database in
   let db;
@@ -16,13 +16,13 @@ window.onload = function () {
     // Loop through the video names one by one
     for (let i = 0; i < videos.length; i++) {
       // Open transaction, get object store, and get() each video by name
-      let objectStore = db.transaction("videos_os").objectStore("videos_os");
+      let objectStore = db.transaction('videos_os').objectStore('videos_os');
       let request = objectStore.get(videos[i].name);
       request.onsuccess = function () {
         // If the result exists in the database (is not undefined)
         if (request.result) {
           // Grab the videos from IDB and display them using displayVideo()
-          console.log("taking videos from IDB");
+          console.log('taking videos from IDB');
           displayVideo(
             request.result.mp4,
             request.result.webm,
@@ -38,13 +38,13 @@ window.onload = function () {
 
   // Define the fetchVideoFromNetwork() function
   function fetchVideoFromNetwork(video) {
-    console.log("fetching videos from network");
+    console.log('fetching videos from network');
     // Fetch the MP4 and WebM versions of the video using the fetch() function,
     // then expose their response bodies as blobs
-    let mp4Blob = fetch("../public/" + video.name + ".mp4").then((response) =>
+    let mp4Blob = fetch('../public/' + video.name + '.mp4').then((response) =>
       response.blob()
     );
-    let webmBlob = fetch("../public/" + video.name + ".webm").then((response) =>
+    let webmBlob = fetch('../public/' + video.name + '.webm').then((response) =>
       response.blob()
     );
 
@@ -61,8 +61,8 @@ window.onload = function () {
   function storeVideo(mp4Blob, webmBlob, name) {
     // Open transaction, get object store; make it a readwrite so we can write to the IDB
     let objectStore = db
-      .transaction(["videos_os"], "readwrite")
-      .objectStore("videos_os");
+      .transaction(['videos_os'], 'readwrite')
+      .objectStore('videos_os');
     // Create a record to add to the IDB
     let record = {
       mp4: mp4Blob,
@@ -74,7 +74,7 @@ window.onload = function () {
     let request = objectStore.add(record);
 
     request.onsuccess = function () {
-      console.log("Record addition attempt finished");
+      console.log('Record addition attempt finished');
     };
 
     request.onerror = function () {
@@ -89,17 +89,17 @@ window.onload = function () {
     let webmURL = URL.createObjectURL(webmBlob);
 
     // Create DOM elements to embed video in the page
-    const article = document.createElement("article");
-    const h2 = document.createElement("h2");
+    const article = document.createElement('article');
+    const h2 = document.createElement('h2');
     h2.textContent = title;
-    const video = document.createElement("video");
+    const video = document.createElement('video');
     video.controls = true;
-    const source1 = document.createElement("source");
+    const source1 = document.createElement('source');
     source1.src = mp4URL;
-    source1.type = "video/mp4";
-    const source2 = document.createElement("source");
+    source1.type = 'video/mp4';
+    const source2 = document.createElement('source');
     source2.src = webmURL;
-    source2.type = "video/webm";
+    source2.type = 'video/webm';
 
     // Embed DOM elements into page
     section.appendChild(article);
@@ -111,16 +111,16 @@ window.onload = function () {
 
   // Open our database; it is created if it doesn't already exist
   // (see onupgradeneeded below)
-  let request = window.indexedDB.open("videos_db", 1);
+  let request = window.indexedDB.open('videos_db', 1);
 
   // onerror handler signifies that the database didn't open successfully
   request.onerror = function () {
-    console.log("Database failed to open");
+    console.log('Database failed to open');
   };
 
   // onsuccess handler signifies that the database opened successfully
   request.onsuccess = function () {
-    console.log("Database opened succesfully");
+    console.log('Database opened succesfully');
 
     // Store the opened database object in the db variable. This is used a lot below
     db = request.result;
@@ -134,27 +134,24 @@ window.onload = function () {
 
     // Create an objectStore to store our videos in (basically like a single table)
     // including a auto-incrementing key
-    let objectStore = db.createObjectStore("videos_os", { keyPath: "name" });
+    let objectStore = db.createObjectStore('videos_os', { keyPath: 'name' });
 
     // Define what data items the objectStore will contain
-    objectStore.createIndex("mp4", "mp4", { unique: false });
-    objectStore.createIndex("webm", "webm", { unique: false });
+    objectStore.createIndex('mp4', 'mp4', { unique: false });
+    objectStore.createIndex('webm', 'webm', { unique: false });
 
-    console.log("Database setup complete");
+    console.log('Database setup complete');
   };
 
   // work offline
 
-  if ("serviceWorker" in navigator) {
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register(
-        "/07-indexed-db-video/service-worker.js"
-      )
+      .register('/07-indexed-db-video/service-worker.js')
       .then(function () {
-        console.log("Service Worker Registered");
+        console.log('Service Worker Registered');
       });
   }
 };
-
 
 // !!!   The given path to the sw.js file is relative to the site origin

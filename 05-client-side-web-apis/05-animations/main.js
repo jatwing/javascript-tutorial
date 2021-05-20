@@ -1,9 +1,9 @@
-const canvas = document.querySelector(".myCanvas");
+const canvas = document.querySelector('.myCanvas');
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
-const context = canvas.getContext("2d");
+const context = canvas.getContext('2d');
 
-context.fillStyle = "#000000";
+context.fillStyle = '#000000';
 context.fillRect(0, 0, width, height);
 
 // draw function
@@ -35,5 +35,5 @@ const draw = () => {
 
 context.translate(width / 2, height / 2);
 const image = new Image();
-image.src = "../public/walk-right.png";
+image.src = '../public/walk-right.png';
 image.onload = draw;

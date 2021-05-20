@@ -6,7 +6,7 @@
 // report any errors that occur in the fetch operation
 // once the products have been successfully loaded and formatted as a JSON object
 // using response.json(), run the initialize() function
-fetch("../public/products.json")
+fetch('../public/products.json')
   .then(function (response) {
     return response.json();
   })
@@ -15,22 +15,22 @@ fetch("../public/products.json")
     initialize(products);
   })
   .catch(function (err) {
-    console.log("Fetch problem: " + err.message);
+    console.log('Fetch problem: ' + err.message);
   });
 // actually we need to check responsive.ok
 
 // sets up the app logic, declares required variables, contains all the other functions
 function initialize(products) {
   // grab the UI elements that we need to manipulate
-  const category = document.querySelector("#category");
-  const searchTerm = document.querySelector("#searchTerm");
-  const searchBtn = document.querySelector("button");
-  const main = document.querySelector("main");
+  const category = document.querySelector('#category');
+  const searchTerm = document.querySelector('#searchTerm');
+  const searchBtn = document.querySelector('button');
+  const main = document.querySelector('main');
 
   // keep a record of what the last category and search term entered were
   let lastCategory = category.value;
   // no search has been made yet
-  let lastSearch = "";
+  let lastSearch = '';
 
   // these contain the results of filtering by category, and search term
   // finalGroup will contain the products that need to be displayed after
@@ -75,7 +75,7 @@ function initialize(products) {
       lastSearch = searchTerm.value.trim();
       // In this case we want to select all products, then filter them by the search
       // term, so we just set categoryGroup to the entire JSON object, then run selectProducts()
-      if (category.value === "All") {
+      if (category.value === 'All') {
         categoryGroup = products;
         selectProducts();
         // If a specific category is chosen, we need to filter out the products not in that
@@ -105,7 +105,7 @@ function initialize(products) {
   function selectProducts() {
     // If no search term has been entered, just make the finalGroup array equal to the categoryGroup
     // array — we don't want to filter the products further — then run updateDisplay().
-    if (searchTerm.value.trim() === "") {
+    if (searchTerm.value.trim() === '') {
       finalGroup = categoryGroup;
       updateDisplay();
     } else {
@@ -135,8 +135,8 @@ function initialize(products) {
 
     // if no products match the search term, display a "No results to display" message
     if (finalGroup.length === 0) {
-      const para = document.createElement("p");
-      para.textContent = "No results to display!";
+      const para = document.createElement('p');
+      para.textContent = 'No results to display!';
       main.appendChild(para);
       // for each product we want to display, pass its product object to fetchBlob()
     } else {
@@ -151,7 +151,7 @@ function initialize(products) {
   // display it
   function fetchBlob(product) {
     // construct the URL path to the image file from the product.image property
-    let url = "../public/" + product.image;
+    let url = '../public/' + product.image;
     // Use fetch to fetch the image, and convert the resulting response to a blob
     // Again, if any errors occur we report them in the console.
     fetch(url)
@@ -170,13 +170,13 @@ function initialize(products) {
   // Display a product inside the <main> element
   function showProduct(objectURL, product) {
     // create <section>, <h2>, <p>, and <img> elements
-    const section = document.createElement("section");
-    const heading = document.createElement("h2");
-    const para = document.createElement("p");
-    const image = document.createElement("img");
+    const section = document.createElement('section');
+    const heading = document.createElement('h2');
+    const para = document.createElement('p');
+    const image = document.createElement('img');
 
     // give the <section> a classname equal to the product "type" property so it will display the correct icon
-    section.setAttribute("class", product.type);
+    section.setAttribute('class', product.type);
 
     // Give the <h2> textContent equal to the product "name" property, but with the first character
     // replaced with the uppercase version of the first character
@@ -188,7 +188,7 @@ function initialize(products) {
     // Give the <p> textContent equal to the product "price" property, with a $ sign in front
     // toFixed(2) is used to fix the price at 2 decimal places, so for example 1.40 is displayed
     // as 1.40, not 1.4.
-    para.textContent = "$" + product.price.toFixed(2);
+    para.textContent = '$' + product.price.toFixed(2);
 
     // Set the src of the <img> element to the ObjectURL, and the alt to the product "name" property
     image.src = objectURL;

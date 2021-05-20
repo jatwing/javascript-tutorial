@@ -1,12 +1,9 @@
-
 // Create needed constants
 const list = document.querySelector('ul');
 const titleInput = document.querySelector('#title');
 const bodyInput = document.querySelector('#body');
 const form = document.querySelector('form');
 const submitBtn = document.querySelector('form button');
-
-
 
 let db;
 const displayData = () => {
@@ -19,12 +16,12 @@ const displayData = () => {
   // Open our object store and then get a cursor - which iterates through all the
   // different data items in the store
   let objectStore = db.transaction('notes_os').objectStore('notes_os');
-  objectStore.openCursor().onsuccess = function(e) {
+  objectStore.openCursor().onsuccess = function (e) {
     // Get a reference to the cursor
     let cursor = e.target.result;
 
     // If there is still another data item to iterate through, keep running this code
-    if(cursor) {
+    if (cursor) {
       // Create a list item, h3, and p to put each data item inside when displaying it
       // structure the HTML fragment, and append it inside the list
       const listItem = document.createElement('li');
@@ -56,7 +53,7 @@ const displayData = () => {
       cursor.continue();
     } else {
       // Again, if list item is empty, display a 'No notes stored' message
-      if(!list.firstChild) {
+      if (!list.firstChild) {
         const listItem = document.createElement('li');
         listItem.textContent = 'No notes stored.';
         list.appendChild(listItem);
@@ -65,7 +62,7 @@ const displayData = () => {
       console.log('Notes all displayed');
     }
   };
-}
+};
 
 const addData = (e) => {
   // prevent default - we don't want the form to submit in the conventional way
@@ -82,29 +79,26 @@ const addData = (e) => {
 
   // Make a request to add our newItem object to the object store
   let request = objectStore.add(newItem);
-  request.onsuccess = function() {
+  request.onsuccess = function () {
     // Clear the form, ready for adding the next entry
     titleInput.value = '';
     bodyInput.value = '';
   };
 
   // Report on the success of the transaction completing, when everything is done
-  transaction.oncomplete = function() {
+  transaction.oncomplete = function () {
     console.log('Transaction completed: database modification finished.');
 
     // update the display of data to show the newly added item, by running displayData() again.
     displayData();
   };
 
-  transaction.onerror = function() {
+  transaction.onerror = function () {
     console.log('Transaction not opened due to error');
   };
-}
+};
 
-
-
-
-const deleteItem = (e)  => {
+const deleteItem = (e) => {
   // retrieve the name of the task we want to delete. We need
   // to convert it to a number before trying it use it with IDB; IDB key
   // values are type-sensitive.
@@ -116,57 +110,52 @@ const deleteItem = (e)  => {
   let request = objectStore.delete(noteId);
 
   // report that the data item has been deleted
-  transaction.oncomplete = function() {
+  transaction.oncomplete = function () {
     // delete the parent of the button
     // which is the list item, so it is no longer displayed
     e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     console.log('Note ' + noteId + ' deleted.');
 
     // Again, if list item is empty, display a 'No notes stored' message
-    if(!list.firstChild) {
+    if (!list.firstChild) {
       let listItem = document.createElement('li');
       listItem.textContent = 'No notes stored.';
       list.appendChild(listItem);
     }
   };
-}
-
+};
 
 window.onload = () => {
-  let request = window.indexedDB.open('notes_db', 1)
+  let request = window.indexedDB.open('notes_db', 1);
 
   request.onerror = () => {
-    console.log('Database failed to open')
-  }
+    console.log('Database failed to open');
+  };
 
   request.onsuccess = () => {
-    console.log('Database opened successfully')
+    console.log('Database opened successfully');
 
-    db = request.result
-    displayData()
-  
-  }
+    db = request.result;
+    displayData();
+  };
 
   request.onupgradeneeded = (e) => {
     // Grab a reference to the opened database
     let db = e.target.result;
-  
+
     // Create an objectStore to store our notes in (basically like a single table)
     // including a auto-incrementing key
-    let objectStore = db.createObjectStore('notes_os', { keyPath: 'id', autoIncrement:true });
-  
+    let objectStore = db.createObjectStore('notes_os', {
+      keyPath: 'id',
+      autoIncrement: true,
+    });
+
     // Define what data items the objectStore will contain
     objectStore.createIndex('title', 'title', { unique: false });
     objectStore.createIndex('body', 'body', { unique: false });
-  
+
     console.log('Database setup complete');
   };
 
   form.onsubmit = addData;
-
-}
-
-
-
-
-
+};

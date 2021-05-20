@@ -39,41 +39,30 @@ context.lineTo(350, 50);
 context.fill();
 
 // circles
-context.fillStyle = '#0000ff'
-context.beginPath()
-context.arc(450, 106, 50, degToRad(0), degToRad(360), false)
-context.fill()
-context.fillStyle = '#ffff00'
+context.fillStyle = '#0000ff';
+context.beginPath();
+context.arc(450, 106, 50, degToRad(0), degToRad(360), false);
+context.fill();
+context.fillStyle = '#ffff00';
 
-context.beginPath()
-context.arc(500, 106, 50, degToRad(-45), degToRad(45), true)
-context.lineTo(500, 106)
-context.fill()
+context.beginPath();
+context.arc(500, 106, 50, degToRad(-45), degToRad(45), true);
+context.lineTo(500, 106);
+context.fill();
 
 // text
-context.strokeStyle = 'white'
-context.lineWidth = 1
-context.font = '36px ariel'
-context.strokeText('Canvas text', 50, 350)
+context.strokeStyle = 'white';
+context.lineWidth = 1;
+context.font = '36px ariel';
+context.strokeText('Canvas text', 50, 350);
 
-context.fillStyle = 'red'
-context.font = '48px georgia'
-context.fillText('Canvas text', 50, 450)
+context.fillStyle = 'red';
+context.font = '48px georgia';
+context.fillText('Canvas text', 50, 450);
 
 // images
-let image = new Image()
-image.src = '../public/firefox.png'
+let image = new Image();
+image.src = '../public/firefox.png';
 image.onload = () => {
-  context.drawImage(image, 20, 20, 185, 175, 350, 350, 185, 175)
-}
-
-
-
-
-
-
-
-
-
-
-
+  context.drawImage(image, 20, 20, 185, 175, 350, 350, 185, 175);
+};
