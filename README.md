@@ -1,4 +1,6 @@
-# [Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
+# Learn Javascript
+
+## Content
 
 1. [JavaScript first steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
 
@@ -10,9 +12,10 @@
 
 5. [Client-side web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 
+## Attribution
+
 [Javascript — Dynamic client-side scripting](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/About/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
 
+## License
 
-My reuse is under the same license as the original content.
-
-
+_Learn JavaScript_ is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
