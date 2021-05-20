@@ -1,4 +1,4 @@
-# Learn Javascript
+# Javascript Tutorial
 
 ## Content
 
@@ -18,4 +18,4 @@
 
 ## License
 
-_Learn JavaScript_ is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+_JavaScript Tutorial_ is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
