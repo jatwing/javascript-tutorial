@@ -10,7 +10,9 @@
 
 5. [Client-side web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 
-[Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/About/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+[Javascript — Dynamic client-side scripting](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/MDN/About/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+
+
 My reuse is under the same license as the original content.
 
 
