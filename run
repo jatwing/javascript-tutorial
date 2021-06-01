@@ -4,7 +4,7 @@ if [ -z $1 ]; then
 fi
 
 if [[ $1 == all ]]; then
-  (sleep 3; open -a firefox http://localhost:8000) &
+  (sleep 3; open -a "Firefox Developer Edition" http://localhost:8000) &
   python -m SimpleHTTPServer 8000
   exit 1
 fi
@@ -15,8 +15,6 @@ if [[ $1 =~ .*\.js ]]; then
 fi
 
 if [[ $1 =~ .*\.html ]]; then
-  open -a firefox $1
+  open -a "Firefox Developer Edition" $1
   exit 1
 fi
-
-
