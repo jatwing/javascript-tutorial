@@ -14,8 +14,9 @@
 
 ## Attribution
 
-[Javascript — Dynamic client-side scripting](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) by [MDN Contributors](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+[Javascript — Dynamic client-side scripting](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) by [MDN Contributors](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/contributors.txt) is licensed under a [Creative Commons Attribution-ShareAlike 2.5 Generic License](https://creativecommons.org/licenses/by-sa/2.5/).
 
 ## License
 
-_JavaScript Tutorial_ is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+![CC-BY-SA 2.5](https://i.creativecommons.org/l/by-sa/2.5/88x31.png)
+This work is licensed under a [Creative Commons Attribution-ShareAlike 2.5 Generic License](https://creativecommons.org/licenses/by-sa/2.5/).
