@@ -18,5 +18,5 @@
 
 ## License
 
-[![CC-BY-SA 2.5](https://i.creativecommons.org/l/by-sa/2.5/88x31.png)](https://creativecommons.org/licenses/by-sa/2.5/)   
+[![CC-BY-SA 2.5](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg)   
 This work is licensed under a [Creative Commons Attribution-ShareAlike 2.5 Generic License](https://creativecommons.org/licenses/by-sa/2.5/).
